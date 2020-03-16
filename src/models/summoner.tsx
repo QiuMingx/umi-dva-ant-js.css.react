@@ -1,35 +1,38 @@
+import { querySummoner } from '../services/api';
 export default {
-    namespace: 'summoner', // 默认与文件名相同 // 这个 model 的名字，必须全局唯一
-    state:{
-        text:'这是一个文件',
-        summoner:'齐天大圣'
-    } ,
-    subscriptions: { // 用于订阅数据
-      setup({ dispatch, history }) {
-      },
+  namespace: 'summoner', // 默认与文件名相同 // 这个 model 的名字，必须全局唯一
+  state: {
+    summoner: [],
+  },
+  subscriptions: {
+    // 用于订阅数据
+    setup({ dispatch, history }) {
+      return history.listen(({ pathname, query }) => {
+        if (pathname == '/summoner') {
+          dispatch({
+            type: 'fetch',
+          });
+        }
+      });
     },
-    reducers: { // 用于修改数据
-      update(state) {
-        return `${state}_hero`;
-      },
+  },
+  reducers: {
+    // 用于修改数据
+    save(state, action) {
+      return { ...state, ...action.payload };
     },
-    effects: { // 用于获取数据
-      *fetch({ type, payload }, { put, call, select }) {
-      },
+  },
+  effects: {
+    // 用于获取数据
+    *fetch({ type, payload }, { put, call, select }) {
+      const summonerList = yield call(querySummoner);
+      console.log(summonerList);
+      yield put({
+        type: 'save',
+        payload: {
+          summoner: summonerList,
+        },
+      });
     },
-  } 
-//   {
-//     namespace: 'example', // 这个 model 的名字，必须全局唯一
-//     state: {
-//       count: 0,
-//     }, // 初始数据
-//     reducers: {
-//       save() { ... },
-//     }, // 用于修改数据
-//     effects: {
-//       *getData() { ... },
-//     }, // 用于获取数据
-//     subscriptions: {
-//       setup() { ... },
-//     }, // 用于订阅数据
-//   }
+  },
+};
