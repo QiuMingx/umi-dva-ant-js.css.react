@@ -11,7 +11,7 @@ const menuData = [
 ];
 function BasicLayout(props) {
   const {
-    location: { pathname },
+    location: { pathname }, //获取url地址，定位菜单激活key
     children,
   } = props;
   return (
@@ -24,15 +24,6 @@ function BasicLayout(props) {
           defaultSelectedKeys={[pathname]}
           style={{ lineHeight: '64px' }}
         >
-          {/* <Menu.Item key="/hero">
-            <Link to="hero">对象</Link>
-          </Menu.Item>
-          <Menu.Item key="/item">
-            <Link to="item">数组</Link>
-          </Menu.Item>
-          <Menu.Item key="/summoner">
-            <Link to="summoner">字符串</Link>
-          </Menu.Item> */}
           {menuData.map(menu => (
             <Menu.Item key={`/${menu.route}`}>
               <Link to={menu.route}>{menu.name}</Link>
