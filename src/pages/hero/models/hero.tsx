@@ -5,6 +5,7 @@ export default {
   namespace: 'hero', // 默认与文件名相同 // 这个 model 的名字，必须全局唯一
   state: {
     heros: [],
+    filterKey: 0,
   },
   subscriptions: {
     // 用于订阅数据 全局的监听
