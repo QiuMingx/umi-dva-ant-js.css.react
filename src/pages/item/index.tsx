@@ -1,14 +1,31 @@
 import React from 'react';
 import styles from './index.less';
+import { Row, Col } from 'antd';
 import { connect } from 'dva'; //---step1 在文件头部引入了dva的connect
 
-function Item(props) {
+function Item({ item, dispath }) {
+  const { items = {} } = item;
   //---step2 把之前的匿名函数，改成实名函数Hero
-  console.log('props:', props); //---step4 使用connect连接了页面和models
+  console.log('props:', items); //---step4 使用connect连接了页面和models
   return (
     <div className={styles.normal}>
-      <h1>Page item</h1>
-      <h2>This is {JSON.stringify(props.item)}</h2>
+      <Row>
+        {items.reverse().map(item => {
+          return (
+            <Col
+              key={item.item_id}
+              title={item.title}
+              span={3}
+              className={styles.itemItem}
+            >
+              <img
+                src={`https://game.gtimg.cn/images/yxzj/img201606/itemimg/${item.item_id}.jpg`}
+              />
+              <p>{item.item_name}</p>
+            </Col>
+          );
+        })}
+      </Row>
     </div>
   );
 }

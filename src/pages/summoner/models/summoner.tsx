@@ -1,14 +1,14 @@
-import { queryItem } from '../services/api';
+import { querySummoner } from 'services/api';
 export default {
-  namespace: 'item', // 默认与文件名相同 // 这个 model 的名字，必须全局唯一
+  namespace: 'summoner', // 默认与文件名相同 // 这个 model 的名字，必须全局唯一
   state: {
-    items: [],
+    summoner: [],
   },
   subscriptions: {
     // 用于订阅数据
     setup({ dispatch, history }) {
       return history.listen(({ pathname, query }) => {
-        if (pathname === '/item') {
+        if (pathname == '/summoner') {
           dispatch({
             type: 'fetch',
           });
@@ -25,11 +25,12 @@ export default {
   effects: {
     // 用于获取数据
     *fetch({ type, payload }, { put, call, select }) {
-      const itemList = yield call(queryItem);
+      const summonerList = yield call(querySummoner);
+      console.log(summonerList);
       yield put({
         type: 'save',
         payload: {
-          items: itemList,
+          summoner: summonerList,
         },
       });
     },

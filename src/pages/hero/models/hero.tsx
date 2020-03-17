@@ -1,14 +1,16 @@
-import { querySummoner } from '../services/api';
+import request from 'utils/request';
+import { queryHeroList, getHeroDetails } from 'services/api';
+
 export default {
-  namespace: 'summoner', // 默认与文件名相同 // 这个 model 的名字，必须全局唯一
+  namespace: 'hero', // 默认与文件名相同 // 这个 model 的名字，必须全局唯一
   state: {
-    summoner: [],
+    heros: [],
   },
   subscriptions: {
-    // 用于订阅数据
+    // 用于订阅数据 全局的监听
     setup({ dispatch, history }) {
       return history.listen(({ pathname, query }) => {
-        if (pathname == '/summoner') {
+        if (pathname === '/hero') {
           dispatch({
             type: 'fetch',
           });
@@ -25,12 +27,13 @@ export default {
   effects: {
     // 用于获取数据
     *fetch({ type, payload }, { put, call, select }) {
-      const summonerList = yield call(querySummoner);
-      console.log(summonerList);
+      const herolist = yield call(queryHeroList);
+      const herodetails = yield call(getHeroDetails, { ename: 110 });
+      console.log(herodetails);
       yield put({
         type: 'save',
         payload: {
-          summoner: summonerList,
+          heros: herolist,
         },
       });
     },
