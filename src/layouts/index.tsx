@@ -1,13 +1,13 @@
 import React from 'react';
 import styles from './index.less';
-import { Link } from 'umi';
+import { NavLink } from 'umi';
 import { Layout, Menu } from 'antd';
 
 const { Header, Content, Footer } = Layout;
 const menuData = [
-  { route: 'hero', name: '英雄' },
-  { route: 'item', name: '局内道具' },
-  { route: 'summoner', name: '召唤师技能' },
+  { route: '/hero', name: '英雄' },
+  { route: '/item', name: '局内道具' },
+  { route: '/summoner', name: '召唤师技能' },
 ];
 function BasicLayout(props) {
   const {
@@ -17,7 +17,11 @@ function BasicLayout(props) {
   return (
     <Layout>
       <Header>
-        <div className={styles.logo}>JavaScript资料库</div>
+        <div>
+          <NavLink to="/" className={styles.logo}>
+            JavaScript资料库
+          </NavLink>
+        </div>
         <Menu
           theme="dark"
           mode="horizontal"
@@ -25,8 +29,8 @@ function BasicLayout(props) {
           style={{ lineHeight: '64px' }}
         >
           {menuData.map(menu => (
-            <Menu.Item key={`/${menu.route}`}>
-              <Link to={menu.route}>{menu.name}</Link>
+            <Menu.Item key={menu.route}>
+              <NavLink to={menu.route}>{menu.name}</NavLink>
             </Menu.Item>
           ))}
         </Menu>
