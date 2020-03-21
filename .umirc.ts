@@ -14,4 +14,5 @@ export default defineConfig({
     services: path.resolve(__dirname, 'src/services'),
     models: path.resolve(__dirname, 'src/models'),
   },
+  links: [{ rel: 'icon', href: 'public/static/favicon.ico' }],
 });

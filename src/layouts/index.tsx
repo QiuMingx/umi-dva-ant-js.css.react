@@ -5,9 +5,9 @@ import { Layout, Menu } from 'antd';
 
 const { Header, Content, Footer } = Layout;
 const menuData = [
-  { route: '/hero', name: '英雄' },
-  { route: '/item', name: '局内道具' },
-  { route: '/summoner', name: '召唤师技能' },
+  { route: '/javascript', name: 'JavaScript' },
+  { route: '/css', name: 'CSS' },
+  { route: '/react', name: 'REACT' },
 ];
 function BasicLayout(props) {
   const {
@@ -35,14 +35,12 @@ function BasicLayout(props) {
           ))}
         </Menu>
       </Header>
-      <Content style={{ padding: '0 50px' }}>
-        <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
+      <Content>
+        <div className={styles.content} style={{ padding: 24, minHeight: 500 }}>
           {children}
         </div>
       </Content>
-      <Footer style={{ textAlign: 'center' }}>
-        Umi 入门教程 Created by xiaohuoni
-      </Footer>
+      {/* <Footer style={{ textAlign: 'center' }}>by Qilz</Footer> */}
     </Layout>
   );
 }
