@@ -19,7 +19,7 @@ function MultiselectCheckbox({ options, onChange }) {
             style={styles.itemStyle}
             onClick={() => toggle(item)}
           >
-            <input type="checkbox" checked={item.checked || false} />
+            <input readOnly type="checkbox" checked={item.checked || false} />
             {item.label}
           </li>
         );

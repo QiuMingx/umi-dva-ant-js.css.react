@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './index.less';
 import MultiselectCheckbox from './component/MultiselectCheckbox';
+import RippleButton from './component/RippleButton';
 
 const options = [
   { label: 'Apple', value: 'Apple' },
@@ -18,6 +19,7 @@ export default () => {
           console.log(data);
         }}
       />
+      <RippleButton onClick={e => console.log(e)}>Click me</RippleButton>
     </div>
   );
 };
