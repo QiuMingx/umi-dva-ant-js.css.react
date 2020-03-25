@@ -11,5 +11,5 @@ $ yarn
 Start the dev server,
 
 ```bash
-$ yarn start
+$ npm start
 ```

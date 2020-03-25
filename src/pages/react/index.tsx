@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './index.less';
 import MultiselectCheckbox from './component/MultiselectCheckbox';
 import RippleButton from './component/RippleButton';
+import StarRating from './component/StarRating';
 
 const options = [
   { label: 'Apple', value: 'Apple' },
@@ -20,6 +21,7 @@ export default () => {
         }}
       />
       <RippleButton onClick={e => console.log(e)}>Click me</RippleButton>
+      <StarRating />
     </div>
   );
 };
