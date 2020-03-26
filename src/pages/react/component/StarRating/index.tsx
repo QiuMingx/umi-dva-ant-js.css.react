@@ -29,7 +29,6 @@ export default function StarRating(props) {
   );
   const [selection, setSelection] = React.useState(0);
   const hoverOver = event => {
-    console.log(event);
     let val = 0;
     if (event && event.target && event.target.getAttribute('star-id'))
       val = event.target.getAttribute('star-id');
