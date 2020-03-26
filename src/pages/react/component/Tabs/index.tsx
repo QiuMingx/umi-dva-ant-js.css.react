@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import item from '@/pages/item';
 require('./index.less');
 
 function TabItem(props) {
