@@ -27,3 +27,4 @@ filter: brightness(0.5) 给图片应用一种线性乘法，使其看起来更�
 
  transform-origin: center top;  让你更改一个元素变形的原点。
 ```
+### 2. `transition`：transition 过渡可以为一个元素在不同状态之间切换的时候定义不同的过渡效果.
