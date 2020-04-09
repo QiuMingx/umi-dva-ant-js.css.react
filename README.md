@@ -32,3 +32,8 @@ filter: brightness(0.5) 给图片应用一种线性乘法，使其看起来更�
 transition: all 0.5s ease-out;
 
 ```
+### 4. `transition`：animation .
+```
+
+
+```
