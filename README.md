@@ -47,6 +47,7 @@ text-indent:-25px;
 ### 5. `position:sticky`： 滚动吸顶效果实现
 ```
 在需要滚动吸顶的元素加上以下样式便可以实现这个效果：
+
 .sticky {
     position: sticky;
     top: 0;
