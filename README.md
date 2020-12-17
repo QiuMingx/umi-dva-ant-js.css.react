@@ -14,6 +14,28 @@ Start the dev server,
 $ npm start
 
 ```
+## 1. 第一部分：JavaScript
+### 1. 谷歌浏览器下载http链接文件失败使用from组件action操作
+```
+const downloadFile = (
+      url = "http://download.etaxcn.com/ycs/plugin/TaxHwHubEntSetup.exe"
+  ) => () => {
+      var winForm = window.open("", "_blank")
+      var form = document.createElement("form")
+      form.style.display = "none"
+      form.method = "get"
+      form.action = url
+      winForm.document.body.appendChild(form)
+      form.submit()
+      form = null
+      setTimeout(() => {
+          winForm.close()
+          winForm = null
+      }, 1000)
+  }
+
+```
+
 ## 1. 第二部分：CSS
 ### 1. `filter`：CSS属性将模糊或颜色偏移等图形效果应用于元素.
 ```
