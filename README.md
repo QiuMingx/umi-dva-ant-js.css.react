@@ -75,4 +75,13 @@ text-indent:-25px;
     top: 0;
 }
 ```
+### 6. 两个div设置为display: inline-block;可能会出现两个div顶端不对齐的情况
+
+```css
+右侧div设置vertical-align: top;
+.right{
+  vertical-align: top;
+}
+```
+
 
