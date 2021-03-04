@@ -100,3 +100,12 @@ background:
            linear-gradient(45deg,transparent 15px,#002FBC 16px, #002594 80px , #04217b)bottom left;
 background-size: 50% 50%;
 ```
+### 10.CSS 多重背景设置
+```css
+.box{
+    background-color:#00144F;
+		background-image:  url(./img/topLeft.png), url(./img/topRight.png), url(./img/bottomLeft.png);
+		background-position: left top, right top, left bottom;
+  	background-repeat: no-repeat,  no-repeat,  no-repeat;
+}
+```
