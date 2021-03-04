@@ -66,7 +66,7 @@ transition: all 0.5s ease-out;
 padding-left:25px;
 text-indent:-25px;
 ```
-### 5. `position:sticky`： 滚动吸顶效果实现
+### 6. `position:sticky`： 滚动吸顶效果实现
 ```
 在需要滚动吸顶的元素加上以下样式便可以实现这个效果：
 
@@ -75,7 +75,7 @@ text-indent:-25px;
     top: 0;
 }
 ```
-### 6. 两个div设置为display: inline-block;可能会出现两个div顶端不对齐的情况
+### 7. 两个div设置为display: inline-block;可能会出现两个div顶端不对齐的情况
 
 ```css
 右侧div设置vertical-align: top;
@@ -83,5 +83,20 @@ text-indent:-25px;
   vertical-align: top;
 }
 ```
+### 8. 两个div设置为display: inline-block;可能会出现两个div顶端不对齐的情况
 
-
+```css
+右侧div设置vertical-align: top;
+.right{
+  vertical-align: top;
+}
+```
+### 9. CSS 实现矩形切角
+```css
+background: 
+           linear-gradient(-45deg,transparent 15px, #00185E 16px, #041a58 80px , #00228a)bottom right,              
+           linear-gradient(-135deg,transparent 15px, #00185E 16px, #041a58 80px , #00228a)top right,              
+           linear-gradient(135deg,transparent 15px,#002FBC 16px, #002594 80px , #04217b)top left,              
+           linear-gradient(45deg,transparent 15px,#002FBC 16px, #002594 80px , #04217b)bottom left;
+background-size: 50% 50%;
+```
