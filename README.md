@@ -15,6 +15,25 @@ $ npm start
 
 ```
 ## 1. 第一部分：JavaScript
+ * 1.const let 块级声明方法
+ * 2.对象及数组的解构
+ * 3.模板字符串
+ * 4.字符串扩展方法（includes， startsWith , endsWith）
+ * 5.函数的扩展 参数默认值（在没有传入实参时使用，带有默认值打参数在最后）
+ * 6.箭头函数
+ * 7.对象字面量的增强
+ * 8.对象扩展方法： Object.assign(目标对象，源对象) 返回目标对象 用后面对象属性覆盖第一个对象 
+ ```
+ *  Object.assign({}, obj)复制对象  Object.is(+0, -0) 比较是否相等
+ *  Proxy 代理 （门卫）
+ *  Reflect 静态类 封装了一系类对对象的底层操作
+  ```
+ * 9.Promise 一种更优的异步编程解决方案
+ * 10.class类
+ * 11.Symbol 一种全新的原始数据类型 最主要的作用就是为对象添加独一无二的属性名 Number String undifend Null Boolean Symbol Object BigInt
+ * 12.全新的遍历方式 for ..of ..作为遍历所有数据结构的统一方式
+ * 13.生成器 Generator 避免异步编程中回调嵌套过深， 提供更好异步解决方案。
+ * 14.ES Modules
 ### 1. 谷歌浏览器下载http链接文件失败使用from组件action操作
 ```
 const downloadFile = (
