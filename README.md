@@ -53,7 +53,44 @@ const downloadFile = (
       }, 1000)
   }
 
+
+ canvasDataURL (path, obj, callback) {
+            let img = new Image()
+            img.src = path
+            img.onload = function () {
+                let that = this
+                // 默认按比例压缩
+                let w = that.width,
+                    h = that.height,
+                    scale = w / h
+                console.log(w, h, 'w')
+                w = obj.width || w
+                h = obj.height || (w / scale)
+                let quality = 0.7  // 默认图片质量为0.7
+                // 生成canvas
+                console.log(w,h, 'w')
+                let canvas = document.createElement('canvas')
+                let ctx = canvas.getContext('2d')
+                // 创建属性节点
+                let anw = document.createAttribute('width')
+                anw.nodeValue = w
+                let anh = document.createAttribute('height')
+                anh.nodeValue = h
+                canvas.setAttributeNode(anw)
+                canvas.setAttributeNode(anh)
+                ctx.drawImage(that, 0, 0, w, h)
+                // 图像质量
+                if (obj.quality && obj.quality <= 1 && obj.quality > 0) {
+                    quality = obj.quality
+                }
+                // quality值越小，所绘制出的图像越模糊
+                let base64 = canvas.toDataURL('image/jpeg', quality)
+                // 回调函数返回base64的值
+                callback(base64)
+            }
+        },
 ```
+
 
 ## 1. 第二部分：CSS
 ### 1. `filter`：CSS属性将模糊或颜色偏移等图形效果应用于元素.
